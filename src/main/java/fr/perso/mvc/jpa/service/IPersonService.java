@@ -9,4 +9,5 @@ public interface IPersonService {
     Person getById(long id);
 
     void save(Person person);
+    void delete(long id);
 }

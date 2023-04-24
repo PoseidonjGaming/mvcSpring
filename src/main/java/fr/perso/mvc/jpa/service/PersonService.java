@@ -27,4 +27,9 @@ public class PersonService implements IPersonService{
     public void save(Person person) {
         repo.save(person);
     }
+
+    @Override
+    public void delete(long id) {
+        repo.delete(getById(id));
+    }
 }

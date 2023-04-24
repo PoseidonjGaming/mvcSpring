@@ -6,7 +6,7 @@
 </head>
 <body>
 <ul>
-    <li th:each="person: ${persons}" th:inline="text">[[${person.name}]] [[${person.phoneNumber}]] <a th:href="@{'/person/'+${person.id}}">Modifier</a></li>
+    <li th:each="person: ${persons}" th:inline="text">[[${person.name}]] [[${person.phoneNumber}]] <a th:href="@{'/person/'+${person.id}}">Modifier</a><a th:href="@{'/person/delete/'+${person.id}}">Delete</a></li>
 </ul>
 <a href="/person/0">Add</a>
 </body>

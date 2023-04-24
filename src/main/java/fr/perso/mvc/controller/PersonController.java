@@ -40,6 +40,12 @@ public class PersonController {
         return "redirect:/person/list";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable long id) {
+        service.delete(id);
+        return "redirect:/person/list";
+    }
+
    /* public ModelAndView all(){
         ModelAndView mav=new ModelAndView();
         mav.addObject("persons", service.getAll());
