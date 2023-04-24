@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>List des person</title>
 </head>
 <body>
-<h1>All</h1>
+<ul>
+    <li th:each="person: ${persons}" th:inline="text">[[${person.name}]] [[${person.phoneNumber}]]</li>
+</ul>
 </body>
 </html>
