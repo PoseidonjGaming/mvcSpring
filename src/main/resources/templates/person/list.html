@@ -7,6 +7,7 @@
 <body>
 <ul>
     <li th:each="person: ${persons}" th:inline="text">[[${person.name}]] [[${person.phoneNumber}]]</li>
+    <li th:each="person: ${persons}" th:text="${#strings.concat(person.name,' ', person.phoneNumber)}"></li>
 </ul>
 </body>
 </html>
