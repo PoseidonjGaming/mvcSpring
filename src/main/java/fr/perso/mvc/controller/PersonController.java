@@ -34,9 +34,11 @@ public class PersonController {
         model.addAttribute("person",service.getById(id));
         return "person/byId";
     }
+
     @PostMapping("/add")
-    public void getById(@RequestBody Person person){
+    public String  getById(@ModelAttribute Person person){
         service.save(person);
+        return "person/list";
     }
 
    /* public ModelAndView all(){
