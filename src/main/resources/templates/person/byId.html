@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ByID</title>
+</head>
+<body>
+<form method="post" th:object="${person}">
+    <label for="id">Id</label><input type="hidden" name="id" id="id" th:field="*{id}">
+    <label for="name">Name</label><input type="text" name="name" id="name" th:field="*{name}">
+    <label for="phone">Phone</label><input type="tel" name="phone" id="phone" th:field="*{phoneNumber}">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

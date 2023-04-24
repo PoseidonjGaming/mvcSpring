@@ -5,8 +5,7 @@ import fr.perso.mvc.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -28,6 +27,16 @@ public class PersonController {
         List<Person> list=service.getAll();
         model.addAttribute("persons",list);
         return "person/list";
+    }
+
+    @GetMapping("/{id}")
+    public String getById(@PathVariable long id,Model model){
+        model.addAttribute("person",service.getById(id));
+        return "person/byId";
+    }
+    @PostMapping("/add")
+    public void getById(@RequestBody Person person){
+        service.save(person);
     }
 
    /* public ModelAndView all(){

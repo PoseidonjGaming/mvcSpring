@@ -17,4 +17,14 @@ public class PersonService implements IPersonService{
     public List<Person> getAll() {
         return repo.findAll();
     }
+
+    @Override
+    public Person getById(long id) {
+        return repo.findById(id).orElse(null);
+    }
+
+    @Override
+    public void save(Person person) {
+        repo.save(person);
+    }
 }
