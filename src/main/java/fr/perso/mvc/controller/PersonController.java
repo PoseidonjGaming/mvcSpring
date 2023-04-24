@@ -1,5 +1,6 @@
 package fr.perso.mvc.controller;
 
+import fr.perso.mvc.jpa.repository.IPersonRepo;
 import fr.perso.mvc.jpa.service.IPersonService;
 import fr.perso.mvc.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,14 @@ import java.util.Map;
 public class PersonController {
 
 
-    private final IPersonService service;
-    @Autowired
-    public PersonController(IPersonService service) {
+    private final IPersonRepo service;
+    public PersonController(IPersonRepo service) {
         this.service = service;
     }
 
     @GetMapping("/list")
     public String getAll(Model model){
-        List<Person> list=service.getAll();
+        List<Person> list=service.findAll();
         model.addAttribute("persons",list);
         return "person/list";
     }
