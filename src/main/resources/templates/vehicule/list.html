@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>List des person</title>
+</head>
+<body>
+<ul>
+    <li th:each="vehicule: ${vehicules}" th:inline="text">[[${vehicule.getOwner().name}]] <a th:href="@{'/vehicule/'+${vehicule.id}}">Modifier</a>|<a th:href="@{'/vehicule/delete/'+${vehicule.id}}">Delete</a></li>
+</ul>
+<a href="/vehicule/0">Add</a>
+</body>
+</html>

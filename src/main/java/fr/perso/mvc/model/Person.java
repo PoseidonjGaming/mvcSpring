@@ -1,18 +1,18 @@
 package fr.perso.mvc.model;
 
-import jakarta.persistence.*;
-
-import java.io.Serializable;
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
-public class Person implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Person extends BaseEntity {
 
-    @Column(length = 10)
+
+    @NotBlank(message = "Required")
+    @Pattern(regexp = "\\d{10}", message = "Pas au bon format")
     private String phoneNumber;
 
+    @NotBlank(message = "Required")
     private String name;
 
     public String getName() {
@@ -23,13 +23,6 @@ public class Person implements Serializable {
         this.name = name;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;

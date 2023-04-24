@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ByID</title>
+</head>
+<body>
+
+<form action="/vehicule/add" method="post" th:object="${vehicule}">
+    <label for="id">Id</label><input type="hidden" name="id" id="id" th:field="*{id}">
+    <label for="name">Name</label><input type="number" name="wheelCount" id="wheelCount" th:field="*{wheelCount}">
+    <p th:if="${#fields.hasErrors('wheelCount')}" th:errors="*{wheelCount}"></p>
+    <label for="person">Owner</label>
+    <select class="form-select" name="person" id="person" th:field="*{owner}">
+        <option th:each="person: ${persons}" th:inline="text" th:value="${person.id}">[[${person.name}]]</option>
+    </select>
+    <p th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}"></p>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
